@@ -166,7 +166,7 @@ export async function getTopScorers(limit = 10) {
       playerId: goalEvents.playerId,
       teamId: goalEvents.teamId,
       goals: sql<number>`COUNT(*)`,
-      minutes: sql<string>`GROUP_CONCAT(${goalEvents.minute} ORDER BY ${goalEvents.minute})`,
+      minutes: sql<string>`STRING_AGG(${goalEvents.minute}::text, ',' ORDER BY ${goalEvents.minute})`,
     })
     .from(goalEvents)
     .groupBy(goalEvents.playerId, goalEvents.teamId)
