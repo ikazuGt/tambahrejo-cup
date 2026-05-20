@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useTransition } from "react";
+import { TeamCrest } from "@/components/team-crest";
 import { quickEditMatch } from "../actions";
 
 type Match = {
@@ -31,7 +32,7 @@ type Props = {
   roundLabels: Record<string, string>;
 };
 
-const MATCH_W = 200;
+const MATCH_W = 220;
 const MATCH_H = 80;
 const ROW_GAP = 18;
 const COL_GAP = 36;
@@ -178,22 +179,12 @@ function Slot({
     >
       {live && <div className="bracket-live-strip"><span className="live-dot" /> LIVE</div>}
       <div className={`admin-slot-row${winner === "home" ? " win" : winner === "away" ? " lose" : ""}`}>
-        {home?.logoUrl ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={home.logoUrl} alt="" style={{ width: 18, height: 18, objectFit: "contain" }} />
-        ) : (
-          <span className="admin-slot-placeholder" />
-        )}
+        <TeamCrest name={home?.name ?? "TBD"} url={home?.logoUrl ?? null} size={20} />
         <span className="admin-slot-name">{home?.name ?? "TBD"}</span>
         <span className="admin-slot-score num">{match.homeScore ?? "-"}</span>
       </div>
       <div className={`admin-slot-row${winner === "away" ? " win" : winner === "home" ? " lose" : ""}`}>
-        {away?.logoUrl ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={away.logoUrl} alt="" style={{ width: 18, height: 18, objectFit: "contain" }} />
-        ) : (
-          <span className="admin-slot-placeholder" />
-        )}
+        <TeamCrest name={away?.name ?? "TBD"} url={away?.logoUrl ?? null} size={20} />
         <span className="admin-slot-name">{away?.name ?? "TBD"}</span>
         <span className="admin-slot-score num">{match.awayScore ?? "-"}</span>
       </div>

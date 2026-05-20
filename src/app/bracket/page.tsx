@@ -7,10 +7,10 @@ export const dynamic = "force-dynamic";
 export const revalidate = 60;
 
 // ---- layout constants (px) ----
-const MATCH_W = 156;
+const MATCH_W = 178;
 const MATCH_H = 76;
 const COL_GAP = 36;
-const COL_W = MATCH_W + COL_GAP; // 192
+const COL_W = MATCH_W + COL_GAP; // 214
 const ROW_GAP = 14; // gap between R16 matches
 
 // y-positions (top of card) — derived to make pairs align at next column's center
@@ -277,14 +277,14 @@ function BracketCard({
       )}
       <div className={`bracket-row${winner === "home" ? " win" : winner === "away" ? " lose" : ""}`}>
         <span className="bracket-team">
-          <TeamCrest name={match.home?.name ?? "TBD"} url={match.home?.logoUrl ?? null} size={18} />
+          <TeamCrest name={match.home?.name ?? "TBD"} url={match.home?.logoUrl ?? null} size={20} />
           <span className="bracket-name">{match.home?.name ?? "TBD"}</span>
         </span>
         <span className="bracket-score num">{match.homeScore ?? "-"}</span>
       </div>
       <div className={`bracket-row${winner === "away" ? " win" : winner === "home" ? " lose" : ""}`}>
         <span className="bracket-team">
-          <TeamCrest name={match.away?.name ?? "TBD"} url={match.away?.logoUrl ?? null} size={18} />
+          <TeamCrest name={match.away?.name ?? "TBD"} url={match.away?.logoUrl ?? null} size={20} />
           <span className="bracket-name">{match.away?.name ?? "TBD"}</span>
         </span>
         <span className="bracket-score num">{match.awayScore ?? "-"}</span>

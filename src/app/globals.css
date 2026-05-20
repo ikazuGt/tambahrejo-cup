@@ -282,13 +282,13 @@
     0%, 100% { opacity: 1; }
     50% { opacity: 0.3; }
   }
-  .bracket-row { display: flex; justify-content: space-between; align-items: center; padding: 4px 8px; gap: 6px; min-height: 27px; font-size: 12px; font-weight: 600; }
+  .bracket-row { display: flex; justify-content: space-between; align-items: center; padding: 5px 9px; gap: 6px; min-height: 30px; font-size: 12px; font-weight: 600; }
   .bracket-row + .bracket-row { border-top: 1px solid var(--border); }
   .bracket-row.win { background: var(--color-brand-soft); }
   .bracket-row.win .bracket-score { color: var(--color-brand); font-weight: 800; }
   .bracket-row.lose { opacity: 0.45; }
-  .bracket-team { display: flex; align-items: center; gap: 5px; min-width: 0; flex: 1; }
-  .bracket-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 11px; }
+  .bracket-team { display: flex; align-items: center; gap: 6px; min-width: 0; flex: 1; }
+  .bracket-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; }
   .bracket-score { font-size: 12px; font-weight: 700; min-width: 16px; text-align: right; flex-shrink: 0; }
   .bracket-round-label { text-align: center; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted-fg); }
   .bracket-round-label.highlight { color: var(--color-brand); font-weight: 800; }
@@ -409,7 +409,7 @@
 
   .admin-slot-row {
     display: grid;
-    grid-template-columns: 22px 1fr 28px;
+    grid-template-columns: 24px 1fr 28px;
     gap: 8px;
     align-items: center;
     padding: 7px 10px;
