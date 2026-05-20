@@ -1,4 +1,6 @@
 import { redirect } from "next/navigation";
+import { isRedirectError } from "next/dist/client/components/redirect-error";
+import { AuthError } from "next-auth";
 import { signIn, auth } from "@/auth";
 
 export const dynamic = "force-dynamic";
@@ -16,11 +18,22 @@ export default async function AdminLoginPage({
     "use server";
     const username = formData.get("username") as string;
     const password = formData.get("password") as string;
-    await signIn("credentials", {
-      username,
-      password,
-      redirectTo: "/admin",
-    });
+    try {
+      await signIn("credentials", {
+        username,
+        password,
+        redirectTo: "/admin",
+      });
+    } catch (err) {
+      // Successful sign-in throws a redirect — re-throw it so Next can handle it.
+      if (isRedirectError(err)) throw err;
+      if (err instanceof AuthError) {
+        const code =
+          err.type === "CredentialsSignin" ? "CredentialsSignin" : "Unknown";
+        redirect(`/admin/login?error=${code}`);
+      }
+      redirect("/admin/login?error=Unknown");
+    }
   }
 
   return (
@@ -36,8 +49,20 @@ export default async function AdminLoginPage({
           <input name="password" type="password" required className="input" autoComplete="current-password" />
         </label>
         {sp.error && (
-          <div style={{ fontSize: 13, color: "var(--color-red-card)" }}>
-            Login gagal. Periksa username dan password.
+          <div
+            role="alert"
+            style={{
+              padding: "10px 12px",
+              border: "1px solid var(--color-red-card, #dc2626)",
+              borderRadius: 8,
+              background: "rgba(220, 38, 38, 0.08)",
+              color: "var(--color-red-card, #dc2626)",
+              fontSize: 13.5,
+            }}
+          >
+            {sp.error === "CredentialsSignin"
+              ? "Username atau password salah. Silakan coba lagi."
+              : "Gagal masuk. Silakan coba lagi."}
           </div>
         )}
         <button type="submit" className="btn btn-primary" style={{ marginTop: 4 }}>
