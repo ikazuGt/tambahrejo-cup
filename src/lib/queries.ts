@@ -199,10 +199,14 @@ export async function getCardLeaders(limit = 10) {
       yellow: sql<number>`SUM(CASE WHEN ${cardEvents.type} = 'YELLOW' THEN 1 ELSE 0 END)`,
       red: sql<number>`SUM(CASE WHEN ${cardEvents.type} = 'RED' THEN 1 ELSE 0 END)`,
       total: sql<number>`COUNT(*)`,
+      points: sql<number>`SUM(CASE WHEN ${cardEvents.type} = 'RED' THEN 3 WHEN ${cardEvents.type} = 'YELLOW' THEN 1 ELSE 0 END)`,
     })
     .from(cardEvents)
     .groupBy(cardEvents.playerId, cardEvents.teamId)
-    .orderBy(desc(sql`COUNT(*)`))
+    .orderBy(
+      desc(sql`SUM(CASE WHEN ${cardEvents.type} = 'RED' THEN 3 WHEN ${cardEvents.type} = 'YELLOW' THEN 1 ELSE 0 END)`),
+      desc(sql`SUM(CASE WHEN ${cardEvents.type} = 'RED' THEN 1 ELSE 0 END)`)
+    )
     .limit(limit);
 
   if (!rows.length) return [];
@@ -221,6 +225,7 @@ export async function getCardLeaders(limit = 10) {
     yellow: Number(r.yellow),
     red: Number(r.red),
     total: Number(r.total),
+    points: Number(r.points),
   }));
 }
 

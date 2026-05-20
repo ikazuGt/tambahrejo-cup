@@ -737,8 +737,7 @@
     .data-table:not(.standings-table) tr {
       padding: 12px 14px;
       border-top: 1px solid var(--border);
-      display: grid;
-      grid-template-columns: 28px 1fr auto;
+      display: flex;
       align-items: center;
       gap: 12px;
       width: 100%;
@@ -752,12 +751,15 @@
     }
     /* Position cell (number) — small badge on left */
     .data-table:not(.standings-table) tr td:first-child {
+      flex: 0 0 28px;
       font-size: 13px;
       font-weight: 700;
       color: var(--muted-fg);
     }
     /* Player cell: contains name + avatar */
     .data-table:not(.standings-table) tr td:nth-child(2) {
+      flex: 1 1 auto;
+      min-width: 0;
       overflow: hidden;
     }
     .data-table:not(.standings-table) tr td:nth-child(2) > div {
@@ -765,8 +767,9 @@
       align-items: center;
       gap: 10px;
     }
-    /* Trailing cells (gol/cards count) */
+    /* Trailing cells (gol/cards count) — packed on the right */
     .data-table:not(.standings-table) tr td:nth-child(n+3) {
+      flex: 0 0 auto;
       font-size: 14px;
       font-weight: 800;
       color: var(--foreground);
