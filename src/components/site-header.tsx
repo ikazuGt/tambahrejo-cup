@@ -25,8 +25,8 @@ export function SiteHeader() {
           <Image
             src="/logo.png"
             alt="Tambahrejo Cup"
-            width={44}
-            height={44}
+            width={60}
+            height={60}
             className="brand-logo"
             priority
           />

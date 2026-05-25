@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getRecentResults, getTopScorers, getUpcomingMatches } from "@/lib/queries";
 import { MatchCard } from "@/components/match-card";
 import { LiveMatches } from "@/components/live-matches";
@@ -27,45 +28,56 @@ export default async function HomePage() {
       <LiveMatches />
 
       <section className="hero">
-        <div className="hero-eyebrow">Musim 2026 · Open Tournament</div>
-        <h1 className="hero-title">
-          Tambahrejo Cup
-          <span className="by">Persembahan Zay.Agency</span>
-        </h1>
-        <p className="hero-desc">
-          Open turnamen sepak bola se-Tambahrejo. Pantau jadwal pertandingan,
-          klasemen tim, top skor, dan pemain terbaik tiap laga secara langsung
-          dari satu tempat.
-        </p>
-        <div className="hero-actions">
-          <a href="/jadwal" className="btn btn-primary">
-            Lihat Jadwal
-          </a>
-          <a href="/bracket" className="btn">
-            Bagan Turnamen
-          </a>
-          <a href="/admin" className="btn">
-            Panel Admin
-          </a>
-        </div>
-        {next && (
-          <div className="next-match">
-            <span className="badge badge-brand">Berikutnya</span>
-            <span className="num muted" style={{ fontSize: 12 }}>
-              {formatDateID(next.kickoffAt)} · {formatTimeID(next.kickoffAt)}
-            </span>
-            <span style={{ fontWeight: 600 }}>
-              {next.home?.name ?? "TBD"} <span className="muted">vs</span> {next.away?.name ?? "TBD"}
-            </span>
-            <a
-              href={`/pertandingan/${next.id}`}
-              className="btn btn-primary btn-sm"
-              style={{ marginLeft: "auto" }}
-            >
-              Detail
+        <div className="hero-content">
+          <div className="hero-eyebrow">Musim 2026 · Open Tournament</div>
+          <h1 className="hero-title">
+            Tambahrejo Cup
+            <span className="by">Persembahan Zay.Agency</span>
+          </h1>
+          <p className="hero-desc">
+            Open turnamen sepak bola se-Tambahrejo. Pantau jadwal pertandingan,
+            klasemen tim, top skor, dan pemain terbaik tiap laga secara langsung
+            dari satu tempat.
+          </p>
+          <div className="hero-actions">
+            <a href="/jadwal" className="btn btn-primary">
+              Lihat Jadwal
+            </a>
+            <a href="/bracket" className="btn">
+              Bagan Turnamen
+            </a>
+            <a href="/admin" className="btn">
+              Panel Admin
             </a>
           </div>
-        )}
+          {next && (
+            <div className="next-match">
+              <span className="badge badge-brand">Berikutnya</span>
+              <span className="num muted" style={{ fontSize: 12 }}>
+                {formatDateID(next.kickoffAt)} · {formatTimeID(next.kickoffAt)}
+              </span>
+              <span style={{ fontWeight: 600 }}>
+                {next.home?.name ?? "TBD"} <span className="muted">vs</span> {next.away?.name ?? "TBD"}
+              </span>
+              <a
+                href={`/pertandingan/${next.id}`}
+                className="btn btn-primary btn-sm"
+                style={{ marginLeft: "auto" }}
+              >
+                Detail
+              </a>
+            </div>
+          )}
+        </div>
+        <div className="hero-logo">
+          <Image
+            src="/logo.png"
+            alt="Tambahrejo Cup 2026"
+            width={280}
+            height={280}
+            priority
+          />
+        </div>
       </section>
 
       <section>
