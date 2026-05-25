@@ -34,32 +34,20 @@
     position: relative;
   }
 
-  /* Garuda watermark — top right (visible patriotic vibe) */
+  /* Garuda Pancasila watermark — centered, subtle */
   body::before {
     content: "";
     position: fixed;
-    top: -40px; right: -40px;
-    width: 560px; height: 560px;
-    opacity: 0.10;
+    inset: 0;
+    background-image: url("/garuda-bg.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: min(640px, 80vw) auto;
+    opacity: 0.06;
     pointer-events: none;
     z-index: -1;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='%23e70011'%3E%3Cpath d='M100 20c5 0 8 3 10 8l3 10 16-5c3 0 4 3 2 5l-7 8 5 3c2 1 2 3 0 4l-5 4 3 10c0 2-2 4-4 4l-7-2-3 7 10 5 20 5 18 12 12 13 10 14-15-7-18-5-18 3 12 10 10 10 3 12-8 0-12-3-18-8-5-5-8-7-12-7l-7 14 5 14 10 14h-15l-10-12-5-18-5 18-10 12h-15l10-14 5-14-7-14c-4 0-7 2-12 7-5 5-9 8-18 8-9 0-6-3 3-12l10-10 12-10c0-7-2-10-18-3l-15 7 10-14 12-13 18-12 20-5 10-5-3-7-7 2c-2 0-4-2-4-4l3-10-5-4c-2-1-2-3 0-4l5-3-7-8c-2-2-1-5 2-5l16 5 3-10c2-5 5-8 10-8z'/%3E%3C/svg%3E");
-    background-size: contain;
-    background-repeat: no-repeat;
   }
-  /* Flag wave — bottom left */
-  body::after {
-    content: "";
-    position: fixed;
-    bottom: -20px; left: -20px;
-    width: 320px; height: 320px;
-    opacity: 0.08;
-    pointer-events: none;
-    z-index: -1;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%23e70011' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M10 60 Q50 40 100 60 T190 60'/%3E%3Cpath d='M10 90 Q50 70 100 90 T190 90'/%3E%3Cpath d='M10 120 Q50 100 100 120 T190 120'/%3E%3Cpath d='M10 150 Q50 130 100 150 T190 150'/%3E%3C/g%3E%3C/svg%3E");
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
+  body::after { display: none; }
 
   *, *::before, *::after { box-sizing: border-box; }
   .num { font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; }
@@ -91,34 +79,26 @@
     border-bottom: 1px solid var(--border);
     box-shadow: 0 1px 4px rgba(231,0,17,0.18);
   }
-  .header-row { display: flex; align-items: center; gap: 16px; height: 56px; }
+  .header-row { display: flex; align-items: center; gap: 14px; height: 64px; }
   .brand {
     font-weight: 900;
     letter-spacing: -0.02em;
     white-space: nowrap;
-    font-size: 17px;
+    font-size: 18px;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
   }
-  .brand-mark {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background:
-      radial-gradient(circle at 30% 30%, #ffd84a 0%, #d4a017 60%, #a07a10 100%);
-    color: #1a0a0a;
-    box-shadow:
-      0 2px 6px rgba(231,0,17,0.30),
-      inset 0 0 0 2px #1a0a0a,
-      inset 0 0 0 4px #ffd84a;
+  .brand-logo {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
     flex-shrink: 0;
-    position: relative;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.18));
   }
-  .brand-mark svg { width: 18px; height: 18px; }
+  @media (max-width: 640px) {
+    .brand-logo { width: 36px; height: 36px; }
+  }
   .brand .accent { color: var(--color-brand); }
   .nav { display: flex; gap: 0; overflow-x: auto; flex: 1; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
   .nav::-webkit-scrollbar { display: none; }
@@ -178,10 +158,11 @@
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='%23ffffff' opacity='0.18'%3E%3Cpath d='M100 20c5 0 8 3 10 8l3 10 16-5c3 0 4 3 2 5l-7 8 5 3c2 1 2 3 0 4l-5 4 3 10c0 2-2 4-4 4l-7-2-3 7 10 5 20 5 18 12 12 13 10 14-15-7-18-5-18 3 12 10 10 10 3 12-8 0-12-3-18-8-5-5-8-7-12-7l-7 14 5 14 10 14h-15l-10-12-5-18-5 18-10 12h-15l10-14 5-14-7-14c-4 0-7 2-12 7-5 5-9 8-18 8-9 0-6-3 3-12l10-10 12-10c0-7-2-10-18-3l-15 7 10-14 12-13 18-12 20-5 10-5-3-7-7 2c-2 0-4-2-4-4l3-10-5-4c-2-1-2-3 0-4l5-3-7-8c-2-2-1-5 2-5l16 5 3-10c2-5 5-8 10-8z'/%3E%3C/svg%3E");
-    background-position: right -20px center;
+    background-image: url("/garuda-bg.png");
+    background-position: right -40px center;
     background-repeat: no-repeat;
-    background-size: 280px 280px;
+    background-size: 360px auto;
+    opacity: 0.22;
     pointer-events: none;
     z-index: 0;
   }

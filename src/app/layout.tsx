@@ -15,12 +15,25 @@ export const metadata: Metadata = {
   description:
     "Jadwal, hasil, klasemen, dan statistik resmi TAMBAHREJO CUP BY ZAY.AGENCY.",
   metadataBase: new URL(process.env.SITE_URL ?? "http://localhost:3000"),
+  icons: {
+    icon: [
+      { url: "/logo.png", type: "image/png" },
+    ],
+    apple: [
+      { url: "/logo.png" },
+    ],
+  },
+  openGraph: {
+    title: "Tambahrejo Cup 2026",
+    description: "Piala Dandim 0424 — Open Tournament Tambahrejo.",
+    images: ["/logo.png"],
+  },
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#c8102e",
+  themeColor: "#e70011",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
