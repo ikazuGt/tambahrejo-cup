@@ -34,30 +34,29 @@
     position: relative;
   }
 
-  /* Garuda watermark — top right */
+  /* Garuda watermark — top right (visible patriotic vibe) */
   body::before {
     content: "";
     position: fixed;
-    top: -60px; right: -60px;
-    width: 520px; height: 520px;
-    opacity: 0.07;
+    top: -40px; right: -40px;
+    width: 560px; height: 560px;
+    opacity: 0.10;
     pointer-events: none;
     z-index: -1;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cg fill='%23e70011'%3E%3Cpath d='M256 36c-12 24-30 38-54 44 22 6 38 22 50 44-12-2-24-2-36 0 22 14 38 36 44 64-22-14-46-22-72-22 14 14 24 32 28 52-22-6-46-2-66 12 14 0 26 6 36 16-22 0-44 8-60 24 16-2 32 2 44 12-22 6-42 22-54 44 16-4 32-4 48 2-16 18-22 42-18 64 8-14 22-22 38-24-6 22 0 46 16 64 4-16 14-30 28-38-2 22 6 44 24 58 0-16 8-32 22-42 4 22 18 42 38 52-6-16-4-34 6-48 12 18 30 30 50 32-12-12-18-28-18-44 18 8 38 8 56 0-16-2-30-12-38-26 22 4 44-2 60-18-16-2-30-10-38-22 22-2 42-14 54-32-16 4-32 2-46-6 18-12 30-32 32-54-12 12-28 18-44 18 8-18 8-38 0-56-2 16-12 30-26 38 4-22-2-44-18-60 0 16-8 30-22 38-2-22-14-42-32-54 4 16 2 32-6 46-12-18-32-30-54-32 12 12 18 28 18 44-18-8-38-8-56 0 16 2 30 12 38 26-22-4-44 2-60 18 16 2 30 10 38 22-22 2-42 14-54 32 16-4 32-2 46 6-18 12-30 32-32 54 12-12 28-18 44-18-2 18-2 36 4 52z'/%3E%3C/g%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='%23e70011'%3E%3Cpath d='M100 20c5 0 8 3 10 8l3 10 16-5c3 0 4 3 2 5l-7 8 5 3c2 1 2 3 0 4l-5 4 3 10c0 2-2 4-4 4l-7-2-3 7 10 5 20 5 18 12 12 13 10 14-15-7-18-5-18 3 12 10 10 10 3 12-8 0-12-3-18-8-5-5-8-7-12-7l-7 14 5 14 10 14h-15l-10-12-5-18-5 18-10 12h-15l10-14 5-14-7-14c-4 0-7 2-12 7-5 5-9 8-18 8-9 0-6-3 3-12l10-10 12-10c0-7-2-10-18-3l-15 7 10-14 12-13 18-12 20-5 10-5-3-7-7 2c-2 0-4-2-4-4l3-10-5-4c-2-1-2-3 0-4l5-3-7-8c-2-2-1-5 2-5l16 5 3-10c2-5 5-8 10-8z'/%3E%3C/svg%3E");
     background-size: contain;
     background-repeat: no-repeat;
-    transform: rotate(-12deg);
   }
-  /* Flag-stripe corner accent — bottom left */
+  /* Flag wave — bottom left */
   body::after {
     content: "";
     position: fixed;
-    bottom: 0; left: 0;
-    width: 280px; height: 280px;
-    opacity: 0.05;
+    bottom: -20px; left: -20px;
+    width: 320px; height: 320px;
+    opacity: 0.08;
     pointer-events: none;
     z-index: -1;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%23e70011' stroke-width='1.4' stroke-linecap='round'%3E%3Ccircle cx='100' cy='100' r='80'/%3E%3Ccircle cx='100' cy='100' r='62'/%3E%3Ccircle cx='100' cy='100' r='44'/%3E%3Ccircle cx='100' cy='100' r='26'/%3E%3Cpath d='M100 20 L100 180 M20 100 L180 100 M44 44 L156 156 M156 44 L44 156'/%3E%3C/g%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%23e70011' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M10 60 Q50 40 100 60 T190 60'/%3E%3Cpath d='M10 90 Q50 70 100 90 T190 90'/%3E%3Cpath d='M10 120 Q50 100 100 120 T190 120'/%3E%3Cpath d='M10 150 Q50 130 100 150 T190 150'/%3E%3C/g%3E%3C/svg%3E");
     background-size: contain;
     background-repeat: no-repeat;
   }
@@ -87,9 +86,10 @@
     border-bottom: 1px solid var(--border);
   }
   .flag-stripe {
-    height: 8px;
+    height: 10px;
     background: linear-gradient(180deg, #e70011 50%, #ffffff 50%);
     border-bottom: 1px solid var(--border);
+    box-shadow: 0 1px 4px rgba(231,0,17,0.18);
   }
   .header-row { display: flex; align-items: center; gap: 16px; height: 56px; }
   .brand {
@@ -105,13 +105,18 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 28px;
-    height: 28px;
-    border-radius: 999px;
-    background: linear-gradient(135deg, var(--color-brand), var(--color-brand-dark));
-    color: var(--color-gold);
-    box-shadow: 0 2px 8px rgba(231,0,17,0.30), inset 0 0 0 2px rgba(255,255,255,0.65);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 30% 30%, #ffd84a 0%, #d4a017 60%, #a07a10 100%);
+    color: #1a0a0a;
+    box-shadow:
+      0 2px 6px rgba(231,0,17,0.30),
+      inset 0 0 0 2px #1a0a0a,
+      inset 0 0 0 4px #ffd84a;
     flex-shrink: 0;
+    position: relative;
   }
   .brand-mark svg { width: 18px; height: 18px; }
   .brand .accent { color: var(--color-brand); }
@@ -156,43 +161,62 @@
   .section-link { font-size: 12px; color: var(--color-brand); font-weight: 600; }
   .section-link:hover { color: var(--color-brand-dark); }
 
-  /* Hero */
+  /* Hero — full merah-putih flag split with Garuda watermark */
   .hero {
     position: relative;
-    border: 1px solid var(--border);
+    border: 1px solid var(--border-strong);
     border-radius: 14px;
-    padding: 40px 32px 32px;
+    padding: 56px 32px 36px;
     overflow: hidden;
-    background: white;
+    color: white;
+    background:
+      linear-gradient(180deg, #e70011 0%, #e70011 50%, #ffffff 50%, #ffffff 100%);
+    box-shadow: 0 10px 40px rgba(231,0,17,0.18);
   }
+  /* Garuda watermark behind hero text */
   .hero::before {
-    /* merah putih flag stripe at top */
     content: "";
     position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 10px;
-    background: linear-gradient(180deg, #e70011 50%, #ffffff 50%);
-    border-bottom: 1px solid var(--border);
-  }
-  .hero::after {
-    /* subtle red glow corner */
-    content: "";
-    position: absolute;
-    top: 8px; right: 0;
-    width: 360px;
-    height: 360px;
-    background: radial-gradient(circle at top right, rgba(231, 0, 17, 0.14) 0%, transparent 70%);
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='%23ffffff' opacity='0.18'%3E%3Cpath d='M100 20c5 0 8 3 10 8l3 10 16-5c3 0 4 3 2 5l-7 8 5 3c2 1 2 3 0 4l-5 4 3 10c0 2-2 4-4 4l-7-2-3 7 10 5 20 5 18 12 12 13 10 14-15-7-18-5-18 3 12 10 10 10 3 12-8 0-12-3-18-8-5-5-8-7-12-7l-7 14 5 14 10 14h-15l-10-12-5-18-5 18-10 12h-15l10-14 5-14-7-14c-4 0-7 2-12 7-5 5-9 8-18 8-9 0-6-3 3-12l10-10 12-10c0-7-2-10-18-3l-15 7 10-14 12-13 18-12 20-5 10-5-3-7-7 2c-2 0-4-2-4-4l3-10-5-4c-2-1-2-3 0-4l5-3-7-8c-2-2-1-5 2-5l16 5 3-10c2-5 5-8 10-8z'/%3E%3C/svg%3E");
+    background-position: right -20px center;
+    background-repeat: no-repeat;
+    background-size: 280px 280px;
     pointer-events: none;
+    z-index: 0;
   }
   .hero > * { position: relative; z-index: 1; }
-  .hero-eyebrow { font-size: 11px; letter-spacing: 0.18em; color: var(--color-brand); font-weight: 800; text-transform: uppercase; margin-bottom: 12px; display: inline-flex; align-items: center; gap: 8px; }
-  .hero-eyebrow::before { content: ""; width: 18px; height: 2px; background: var(--color-gold); border-radius: 1px; }
-  .hero-eyebrow::after { content: ""; width: 18px; height: 2px; background: var(--color-brand); border-radius: 1px; }
-  .hero-title { font-size: 44px; font-weight: 900; line-height: 0.95; letter-spacing: -0.03em; margin: 0; }
-  .hero-title .by { display: block; font-size: 0.3em; font-weight: 700; letter-spacing: 0.18em; color: var(--color-gold); margin-top: 12px; text-transform: uppercase; }
-  .hero-desc { color: var(--muted-fg); font-size: 15px; margin: 16px 0 0; max-width: 56ch; line-height: 1.6; }
+  .hero-eyebrow {
+    font-size: 11px; letter-spacing: 0.18em;
+    color: #ffd84a;
+    font-weight: 800; text-transform: uppercase;
+    margin-bottom: 12px;
+    display: inline-flex; align-items: center; gap: 8px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.18);
+  }
+  .hero-eyebrow::before { content: ""; width: 22px; height: 2px; background: #ffd84a; border-radius: 1px; }
+  .hero-eyebrow::after { content: "🇮🇩"; font-size: 14px; }
+  .hero-title {
+    font-size: 48px; font-weight: 900; line-height: 0.95;
+    letter-spacing: -0.03em; margin: 0;
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  }
+  .hero-title .by {
+    display: block; font-size: 0.3em; font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--foreground);
+    margin-top: 18px;
+    text-transform: uppercase;
+    text-shadow: none;
+  }
+  .hero-desc { color: var(--foreground); font-size: 15px; margin: 16px 0 0; max-width: 56ch; line-height: 1.6; opacity: 0.85; }
   .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
-  .next-match { margin-top: 24px; padding: 14px 16px; border: 1px solid var(--border); border-left: 4px solid var(--color-brand); border-radius: 8px; background: var(--color-brand-soft); display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .hero-actions .btn { background: white; color: var(--foreground); border-color: white; box-shadow: 0 2px 10px rgba(0,0,0,0.10); }
+  .hero-actions .btn:hover { background: var(--color-brand-soft); }
+  .hero-actions .btn-primary { background: #1a0a0a; color: white; border-color: #1a0a0a; }
+  .hero-actions .btn-primary:hover { background: #000; }
+  .next-match { margin-top: 24px; padding: 14px 16px; border: 1px solid var(--border); border-left: 4px solid var(--color-brand); border-radius: 8px; background: white; color: var(--foreground); display: flex; gap: 12px; align-items: center; flex-wrap: wrap; box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
 
   /* Match cards */
   .week-strip { margin-bottom: 4px; }
