@@ -179,12 +179,78 @@
     filter: drop-shadow(0 12px 32px rgba(0,0,0,0.35));
   }
   @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr; padding: 44px 24px 28px; gap: 20px; }
-    .hero-logo { order: -1; }
-    .hero-logo img { width: 180px; height: 180px; }
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 0 0 24px;
+      gap: 0;
+      background: white;
+      color: var(--foreground);
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(231,0,17,0.12);
+    }
+    /* Red flag stripe banner at top with logo on it */
+    .hero-logo {
+      order: -1;
+      width: 100%;
+      background: linear-gradient(180deg, #e70011 0%, #e70011 70%, #ffffff 70%);
+      padding: 28px 20px 24px;
+      margin: 0;
+    }
+    .hero-logo img {
+      width: 200px;
+      height: 200px;
+      filter: drop-shadow(0 10px 24px rgba(0,0,0,0.4));
+    }
+    .hero-content {
+      padding: 4px 22px 0;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      justify-content: center;
+      color: var(--color-brand);
+      text-shadow: none;
+      margin-top: 4px;
+    }
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
+      background: var(--color-gold);
+    }
+    .hero-eyebrow::after { content: ""; width: 22px; height: 2px; }
+    .hero-title {
+      color: var(--foreground);
+      text-shadow: none;
+      font-size: 32px;
+    }
+    .hero-title .by {
+      color: var(--color-brand);
+      margin-top: 10px;
+    }
+    .hero-desc {
+      opacity: 1;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-actions {
+      justify-content: center;
+    }
+    .hero-actions .btn {
+      background: white;
+      color: var(--foreground);
+      border-color: var(--border-strong);
+    }
+    .hero-actions .btn-primary {
+      background: var(--color-brand);
+      color: white;
+      border-color: var(--color-brand);
+    }
+    .next-match {
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
   @media (max-width: 640px) {
-    .hero-logo img { width: 140px; height: 140px; }
+    .hero-logo img { width: 160px; height: 160px; }
+    .hero-title { font-size: 26px; }
   }
   .hero > * { position: relative; z-index: 1; }
   .hero-eyebrow {
@@ -363,8 +429,6 @@
 
   /* Mobile */
   @media (max-width: 640px) {
-    .hero { padding: 28px 20px 22px; border-radius: 10px; }
-    .hero-title { font-size: 30px; }
     .page-title { font-size: 24px; }
     .section-title { font-size: 16px; }
     .container-page { padding-inline: 14px; }
@@ -841,9 +905,7 @@
     .chips { gap: 6px; }
     .chip { padding: 6px 12px; font-size: 11px; }
 
-    /* Hero: tighter padding, smaller actions */
-    .hero { padding: 24px 18px 20px; border-radius: 8px; }
-    .hero-title { font-size: 26px; }
+    /* Hero: smaller actions only — main hero layout handled in primary block above */
     .hero-desc { font-size: 13px; }
     .hero-actions { gap: 8px; }
     .hero-actions .btn { padding: 8px 14px; font-size: 12px; }
